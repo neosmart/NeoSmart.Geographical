@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.3;netstandard2.1</TargetFrameworks>
+    <AssemblyName>NeoSmart.Data.Geographical.StatesAndProvinces</AssemblyName>
+    <RootNamespace>NeoSmart.Data.Geographical</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Geographical\Geographical.csproj" />
+  </ItemGroup>
+
+</Project>
