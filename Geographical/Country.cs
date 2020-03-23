@@ -1,61 +1,35 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Reflection;
-using System.Text;
 
-namespace NeoSmart.Data.Geographical
+namespace NeoSmart.Geographical
 {
-    // If we ever change this to a class, we need to revisit the comparison operators for null checking
-    public struct Country : ICountry, IComparable<Country>, IEquatable<Country>
+    public readonly struct Country : ICountry, IComparable<Country>, IEquatable<Country>
     {
-        private string _fullName;
-        public string FullName
+        private readonly string? _fullName;
+        public readonly string FullName
         {
             get => _fullName ?? Name;
-            set => _fullName = value;
         }
 
-        public string Name { get; set; }
-        public string ISOAbbreviation { get; set; }
-        public string UNAbbreviation { get; set; }
-        public int UNCode { get; set; }
-        public string Abbreviation => UNAbbreviation;
+        public readonly string Name { get; }
+        public readonly string IsoAbbreviation { get; }
+        public readonly string UNAbbreviation { get; }
+        public readonly int UNCode { get; }
+        public readonly string Abbreviation => IsoAbbreviation;
 
-        public int Id => UNCode;
+        public readonly int Id => UNCode;
 
-        public string ThreeCharacterAbbreviation => UNAbbreviation;
-        public string TwoCharacterAbbreviation => ISOAbbreviation;
+        public readonly string ThreeCharacterAbbreviation => UNAbbreviation;
+        public readonly string TwoCharacterAbbreviation => IsoAbbreviation;
 
-        public Country(string name, string fullName = null, int unCode = 0, string unAbbreviation = null, string isoAbbreviation = null)
+        public Country(string name, string? fullName = null, int unCode = 0, string unAbbreviation = "", string isoAbbreviation = "")
         {
             Name = name;
             _fullName = fullName;
             UNCode = unCode;
             UNAbbreviation = unAbbreviation;
-            ISOAbbreviation = isoAbbreviation;
-        }
-
-        private static Dictionary<string, Country> ReverseLookup { get; set; } = new Dictionary<string, Country>();
-
-        public Country(string search)
-        {
-            if (ReverseLookup.Count == 0)
-            {
-                lock (ReverseLookup)
-                {
-                    if (ReverseLookup.Count == 0)
-                    {
-                    }
-                }
-            }
-
-            var result = ReverseLookup[search];
-            _fullName = result._fullName;
-            Name = result.Name;
-            UNCode = result.UNCode;
-            UNAbbreviation = result.UNAbbreviation;
-            ISOAbbreviation = result.ISOAbbreviation;
+            IsoAbbreviation = isoAbbreviation;
         }
 
         public int CompareTo(Country other)
@@ -65,11 +39,7 @@ namespace NeoSmart.Data.Geographical
                 return 0;
             }
 
-#if NETSTANDARD1_3
             return string.Compare(Name, other.Name, StringComparison.CurrentCultureIgnoreCase);
-#else
-            return string.Compare(Name, other.Name, StringComparison.InvariantCultureIgnoreCase);
-#endif
         }
 
         public bool Equals(Country other)
@@ -100,6 +70,26 @@ namespace NeoSmart.Data.Geographical
         public static bool operator !=(Country a, Country b)
         {
             return !a.Equals(b);
+        }
+
+        public static bool operator <(Country left, Country right)
+        {
+            return left.CompareTo(right) < 0;
+        }
+
+        public static bool operator <=(Country left, Country right)
+        {
+            return left.CompareTo(right) <= 0;
+        }
+
+        public static bool operator >(Country left, Country right)
+        {
+            return left.CompareTo(right) > 0;
+        }
+
+        public static bool operator >=(Country left, Country right)
+        {
+            return left.CompareTo(right) >= 0;
         }
     }
 }

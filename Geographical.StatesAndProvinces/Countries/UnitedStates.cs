@@ -1,391 +1,426 @@
-using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq.Expressions;
+using System;
 
-namespace NeoSmart.Data.Geographical
+namespace NeoSmart.Geographical
 {
-    public partial class UnitedStates
+    public static partial class UnitedStates
     {
-        public struct State : IState, IComparable<State>, IEquatable<State>
+        public static StateFactory States = new StateFactory();
+
+        public readonly struct State : IState, IComparable<State>, IEquatable<State>
         {
-            public string FullName => Name;
-            public string Name { get; set; }
-            public string Abbreviation { get; set; }
+            public readonly string FullName => Name;
+            public readonly string Name { get; }
+            public readonly string Abbreviation { get; }
+
+            public State(string name, string abbrevation = "")
+            {
+                Name = name;
+                Abbreviation = abbrevation;
+            }
 
             public int CompareTo(State other)
             {
-                return Name.CompareTo(other.Name);
+                return FullName.CompareTo(other.FullName);
             }
 
             public bool Equals(State other)
             {
                 return string.Compare(FullName, other.FullName, true) == 0;
             }
-        }
 
-        public static StateFactory States = new StateFactory();
+            public override bool Equals(object obj)
+            {
+                return obj is State state && Equals(state);
+            }
+
+            public override int GetHashCode()
+            {
+                return FullName.ToLowerInvariant().GetHashCode();
+            }
+
+            public static bool operator ==(State left, State right)
+            {
+                return left.Equals(right);
+            }
+
+            public static bool operator !=(State left, State right)
+            {
+                return !(left == right);
+            }
+        }
 
         public class StateFactory : WellKnown<State>
         {
+            protected override IEnumerable<Expression<Func<State, string>>> IndexExpressions =>
+                new Expression<Func<State, string>>[]
+                {
+                    state => state.Name,
+                    state => state.Abbreviation,
+                };
+
             internal StateFactory()
             {
             }
 
             [Display(Name = "Alabama")]
             public readonly State Alabama = new State
-            {
-                Name = "Alabama",
-                Abbreviation = "AL",
-            };
+            (
+                "Alabama",
+                abbrevation: "AL"
+            );
 
             [Display(Name = "Alaska")]
             public readonly State Alaska = new State
-            {
-                Name = "Alaska",
-                Abbreviation = "AK",
-            };
+            (
+                "Alaska",
+                abbrevation: "AK"
+            );
 
             [Display(Name = "Arizona")]
             public readonly State Arizona = new State
-            {
-                Name = "Arizona",
-                Abbreviation = "AZ",
-            };
+            (
+                "Arizona",
+                abbrevation: "AZ"
+            );
 
             [Display(Name = "Arkansas")]
             public readonly State Arkansas = new State
-            {
-                Name = "Arkansas",
-                Abbreviation = "AR",
-            };
+            (
+                "Arkansas",
+                abbrevation: "AR"
+            );
 
             [Display(Name = "California")]
             public readonly State California = new State
-            {
-                Name = "California",
-                Abbreviation = "CA",
-            };
+            (
+                "California",
+                abbrevation: "CA"
+            );
 
             [Display(Name = "Colorado")]
             public readonly State Colorado = new State
-            {
-                Name = "Colorado",
-                Abbreviation = "CO",
-            };
+            (
+                "Colorado",
+                abbrevation: "CO"
+            );
 
             [Display(Name = "Connecticut")]
             public readonly State Connecticut = new State
-            {
-                Name = "Connecticut",
-                Abbreviation = "CT",
-            };
+            (
+                "Connecticut",
+                abbrevation: "CT"
+            );
 
             [Display(Name = "Delaware")]
             public readonly State Delaware = new State
-            {
-                Name = "Delaware",
-                Abbreviation = "DE",
-            };
+            (
+                "Delaware",
+                abbrevation: "DE"
+            );
 
             [Display(Name = "District of Columbia")]
             public readonly State DistrictOfColumbia = new State
-            {
-                Name = "District of Columbia",
-                Abbreviation = "DC",
-            };
+            (
+                "District of Columbia",
+                abbrevation: "DC"
+            );
 
             [Display(Name = "Florida")]
             public readonly State Florida = new State
-            {
-                Name = "Florida",
-                Abbreviation = "FL",
-            };
+            (
+                "Florida",
+                abbrevation: "FL"
+            );
 
             [Display(Name = "Georgia")]
             public readonly State Georgia = new State
-            {
-                Name = "Georgia",
-                Abbreviation = "GA",
-            };
+            (
+                "Georgia",
+                abbrevation: "GA"
+            );
 
             [Display(Name = "Hawaii")]
             public readonly State Hawaii = new State
-            {
-                Name = "Hawaii",
-                Abbreviation = "HI",
-            };
+            (
+                "Hawaii",
+                abbrevation: "HI"
+            );
 
             [Display(Name = "Idaho")]
             public readonly State Idaho = new State
-            {
-                Name = "Idaho",
-                Abbreviation = "ID",
-            };
+            (
+                "Idaho",
+                abbrevation: "ID"
+            );
 
             [Display(Name = "Illinois")]
             public readonly State Illinois = new State
-            {
-                Name = "Illinois",
-                Abbreviation = "IL",
-            };
+            (
+                "Illinois",
+                abbrevation: "IL"
+            );
 
             [Display(Name = "Indiana")]
             public readonly State Indiana = new State
-            {
-                Name = "Indiana",
-                Abbreviation = "IN",
-            };
+            (
+                "Indiana",
+                abbrevation: "IN"
+            );
 
             [Display(Name = "Iowa")]
             public readonly State Iowa = new State
-            {
-                Name = "Iowa",
-                Abbreviation = "IA",
-            };
+            (
+                "Iowa",
+                abbrevation: "IA"
+            );
 
             [Display(Name = "Kansa")]
             public readonly State Kansa = new State
-            {
-                Name = "Kansa",
-                Abbreviation = "KS",
-            };
+            (
+                "Kansa",
+                abbrevation: "KS"
+            );
 
             [Display(Name = "Kentucky")]
             public readonly State Kentucky = new State
-            {
-                Name = "Kentucky",
-                Abbreviation = "KY",
-            };
+            (
+                "Kentucky",
+                abbrevation: "KY"
+            );
 
             [Display(Name = "Lousiana")]
             public readonly State Lousiana = new State
-            {
-                Name = "Lousiana",
-                Abbreviation = "LA",
-            };
+            (
+                "Lousiana",
+                abbrevation: "LA"
+            );
 
             [Display(Name = "Maine")]
             public readonly State Maine = new State
-            {
-                Name = "Maine",
-                Abbreviation = "ME",
-            };
+            (
+                "Maine",
+                abbrevation: "ME"
+            );
 
             [Display(Name = "Maryland")]
             public readonly State Maryland = new State
-            {
-                Name = "Maryland",
-                Abbreviation = "MD",
-            };
+            (
+                "Maryland",
+                abbrevation: "MD"
+            );
 
             [Display(Name = "Massachusetts")]
             public readonly State Massachusetts = new State
-            {
-                Name = "Massachusetts",
-                Abbreviation = "MA",
-            };
+            (
+                "Massachusetts",
+                abbrevation: "MA"
+            );
 
             [Display(Name = "Michigan")]
             public readonly State Michigan = new State
-            {
-                Name = "Michigan",
-                Abbreviation = "MI",
-            };
+            (
+                "Michigan",
+                abbrevation: "MI"
+            );
 
             [Display(Name = "Minnesota")]
             public readonly State Minnesota = new State
-            {
-                Name = "Minnesota",
-                Abbreviation = "MN",
-            };
+            (
+                "Minnesota",
+                abbrevation: "MN"
+            );
 
             [Display(Name = "Mississippi")]
             public readonly State Mississippi = new State
-            {
-                Name = "Mississippi",
-                Abbreviation = "MS",
-            };
+            (
+                "Mississippi",
+                abbrevation: "MS"
+            );
 
             [Display(Name = "Missouri")]
             public readonly State Missouri = new State
-            {
-                Name = "Missouri",
-                Abbreviation = "MO",
-            };
+            (
+                "Missouri",
+                abbrevation: "MO"
+            );
 
             [Display(Name = "Montana")]
             public readonly State Montana = new State
-            {
-                Name = "Montana",
-                Abbreviation = "MT",
-            };
+            (
+                "Montana",
+                abbrevation: "MT"
+            );
 
             [Display(Name = "Nebraska")]
             public readonly State Nebraska = new State
-            {
-                Name = "Nebraska",
-                Abbreviation = "NE",
-            };
+            (
+                "Nebraska",
+                abbrevation: "NE"
+            );
 
             [Display(Name = "Nevada")]
             public readonly State Nevada = new State
-            {
-                Name = "Nevada",
-                Abbreviation = "NV",
-            };
+            (
+                "Nevada",
+                abbrevation: "NV"
+            );
 
             [Display(Name = "New Hampshire")]
             public readonly State NewHampshire = new State
-            {
-                Name = "New Hampshire",
-                Abbreviation = "NH",
-            };
+            (
+                "New Hampshire",
+                abbrevation: "NH"
+            );
 
             [Display(Name = "New Jersey")]
             public readonly State NewJersey = new State
-            {
-                Name = "New Jersey",
-                Abbreviation = "NJ",
-            };
+            (
+                "New Jersey",
+                abbrevation: "NJ"
+            );
 
             [Display(Name = "New Mexico")]
             public readonly State NewMexico = new State
-            {
-                Name = "New Mexico",
-                Abbreviation = "NM",
-            };
+            (
+                "New Mexico",
+                abbrevation: "NM"
+            );
 
             [Display(Name = "New York")]
             public readonly State NewYork = new State
-            {
-                Name = "New York",
-                Abbreviation = "NY",
-            };
+            (
+                "New York",
+                abbrevation: "NY"
+            );
 
             [Display(Name = "North Carolina")]
             public readonly State NorthCarolina = new State
-            {
-                Name = "North Carolina",
-                Abbreviation = "NC",
-            };
+            (
+                "North Carolina",
+                abbrevation: "NC"
+            );
 
             [Display(Name = "North Dakota")]
             public readonly State NorthDakota = new State
-            {
-                Name = "North Dakota",
-                Abbreviation = "ND",
-            };
+            (
+                "North Dakota",
+                abbrevation: "ND"
+            );
 
             [Display(Name = "Ohio")]
             public readonly State Ohio = new State
-            {
-                Name = "Ohio",
-                Abbreviation = "OH",
-            };
+            (
+                "Ohio",
+                abbrevation: "OH"
+            );
 
             [Display(Name = "Oklahoma")]
             public readonly State Oklahoma = new State
-            {
-                Name = "Oklahoma",
-                Abbreviation = "OK",
-            };
+            (
+                "Oklahoma",
+                abbrevation: "OK"
+            );
 
             [Display(Name = "Oregon")]
             public readonly State Oregon = new State
-            {
-                Name = "Oregon",
-                Abbreviation = "OR",
-            };
+            (
+                "Oregon",
+                abbrevation: "OR"
+            );
 
             [Display(Name = "Pennsylvania")]
             public readonly State Pennsylvania = new State
-            {
-                Name = "Pennsylvania",
-                Abbreviation = "PA",
-            };
+            (
+                "Pennsylvania",
+                abbrevation: "PA"
+            );
 
             [Display(Name = "Rhode Island")]
             public readonly State RhodeIsland = new State
-            {
-                Name = "Rhode Island",
-                Abbreviation = "RI",
-            };
+            (
+                "Rhode Island",
+                abbrevation: "RI"
+            );
 
             [Display(Name = "South Carolina")]
             public readonly State SouthCarolina = new State
-            {
-                Name = "South Carolina",
-                Abbreviation = "SC",
-            };
+            (
+                "South Carolina",
+                abbrevation: "SC"
+            );
 
             [Display(Name = "South Dakota")]
             public readonly State SouthDakota = new State
-            {
-                Name = "South Dakota",
-                Abbreviation = "SD",
-            };
+            (
+                "South Dakota",
+                abbrevation: "SD"
+            );
 
             [Display(Name = "Tennessee")]
             public readonly State Tennessee = new State
-            {
-                Name = "Tennessee",
-                Abbreviation = "TN",
-            };
+            (
+                "Tennessee",
+                abbrevation: "TN"
+            );
 
             [Display(Name = "Texas")]
             public readonly State Texas = new State
-            {
-                Name = "Texas",
-                Abbreviation = "TX",
-            };
+            (
+                "Texas",
+                abbrevation: "TX"
+            );
 
             [Display(Name = "Utah")]
             public readonly State Utah = new State
-            {
-                Name = "Utah",
-                Abbreviation = "UT",
-            };
+            (
+                "Utah",
+                abbrevation: "UT"
+            );
 
             [Display(Name = "Vermont")]
             public readonly State Vermont = new State
-            {
-                Name = "Vermont",
-                Abbreviation = "VT",
-            };
+            (
+                "Vermont",
+                abbrevation: "VT"
+            );
 
             [Display(Name = "Virginia")]
             public readonly State Virginia = new State
-            {
-                Name = "Virginia",
-                Abbreviation = "VA",
-            };
+            (
+                "Virginia",
+                abbrevation: "VA"
+            );
 
             [Display(Name = "Washington")]
             public readonly State Washington = new State
-            {
-                Name = "Washington",
-                Abbreviation = "WA",
-            };
+            (
+                "Washington",
+                abbrevation: "WA"
+            );
 
             [Display(Name = "West Virginia")]
             public readonly State WestVirginia = new State
-            {
-                Name = "West Virginia",
-                Abbreviation = "WV",
-            };
+            (
+                "West Virginia",
+                abbrevation: "WV"
+            );
 
             [Display(Name = "Wisconsin")]
             public readonly State Wisconsin = new State
-            {
-                Name = "Wisconsin",
-                Abbreviation = "WI",
-            };
+            (
+                "Wisconsin",
+                abbrevation: "WI"
+            );
 
             [Display(Name = "Wyoming")]
             public readonly State Wyoming = new State
-            {
-                Name = "Wyoming",
-                Abbreviation = "WY",
-            };
+            (
+                "Wyoming",
+                abbrevation: "WY"
+            );
 
         }
     }

@@ -1,4 +1,4 @@
-namespace NeoSmart.Data.Geographical
+namespace NeoSmart.Geographical
 {
     /// <summary>
     /// Types implementing this interface declare one of their members to be the unique id
@@ -59,7 +59,7 @@ namespace NeoSmart.Data.Geographical
     {
     }
 
-    public interface ICountry : IHasId<int>, IAddressComponent, IISOAbbreviable, IUNAbbreviable, IAbbreviable, IThreeCharacterAbbrevation, ITwoCharacterAbbreviation
+    public interface ICountry : IHasId<int>, IAddressComponent, IIsoAbbreviable, IUNAbbreviable, IAbbreviable, IThreeCharacterAbbrevation, ITwoCharacterAbbreviation
     {
     }
 }

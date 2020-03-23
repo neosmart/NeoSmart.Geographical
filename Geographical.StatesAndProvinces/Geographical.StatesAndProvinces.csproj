@@ -1,9 +1,19 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>netstandard1.3;netstandard2.1</TargetFrameworks>
-    <AssemblyName>NeoSmart.Data.Geographical.StatesAndProvinces</AssemblyName>
-    <RootNamespace>NeoSmart.Data.Geographical</RootNamespace>
+    <AssemblyName>NeoSmart.Geographical.StatesAndProvinces</AssemblyName>
+    <RootNamespace>NeoSmart.Geographical</RootNamespace>
+    <LangVersion>8.0</LangVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.1.0</Version>
+    <Description>A strongly-typed enumeration of states and provinces extending the NeoSmart.Geographical library and interfaces.</Description>
+    <Copyright>NeoSmart Technologies 2018-2020</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/neosmart/NeoSmart.Geographical/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/neosmart/NeoSmart.Geographical/</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>geographical, states, provinces</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>

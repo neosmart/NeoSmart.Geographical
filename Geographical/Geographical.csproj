@@ -2,9 +2,20 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard1.3;netstandard2.1</TargetFrameworks>
-    <LangVersion>7.3</LangVersion>
-    <AssemblyName>NeoSmart.Data.Geographical</AssemblyName>
-    <RootNamespace>NeoSmart.Data.Geographical</RootNamespace>
+    <LangVersion>8.0</LangVersion>
+    <AssemblyName>NeoSmart.Geographical</AssemblyName>
+    <RootNamespace>NeoSmart.Geographical</RootNamespace>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>Interfaces for representing location data and a strongly-typed static enumeration of the world's countries with their abbreviations. ISO Abbreviation, country codes, UN abbreviations, and more.</Description>
+    <Copyright>NeoSmart Technologies 2018-2020</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/neosmart/NeoSmart.Geographical/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/neosmart/NeoSmart.Geographical/</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>geography, geographical, list, countries, enumeration</PackageTags>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <Version>0.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace NeoSmart.Data.Geographical
+namespace NeoSmart.Geographical
 {
     public interface IAbbreviable
     {
@@ -26,12 +26,12 @@ namespace NeoSmart.Data.Geographical
     /// <summary>
     /// Represents an entity with a formal ISO-assigned abbreviation.
     /// </summary>
-    public interface IISOAbbreviable
+    public interface IIsoAbbreviable
     {
         /// <summary>
         /// Returns the ISO-assigned abbreviation/code for an entity.
         /// </summary>
-        string ISOAbbreviation { get; }
+        string IsoAbbreviation { get; }
     }
 
     /// <summary>
