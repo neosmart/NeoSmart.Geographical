@@ -59,7 +59,7 @@ namespace NeoSmart.Geographical
     {
     }
 
-    public interface ICountry : IHasId<int>, IAddressComponent, IIsoAbbreviable, IUNAbbreviable, IAbbreviable, IThreeCharacterAbbrevation, ITwoCharacterAbbreviation
+    public interface ICountry : IHasId<int>, IAddressComponent, IIsoAbbreviable, IAbbreviable, IThreeCharacterAbbrevation, ITwoCharacterAbbreviation
     {
     }
 }

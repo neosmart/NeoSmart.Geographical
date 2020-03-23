@@ -31,15 +31,8 @@ namespace NeoSmart.Geographical
         /// <summary>
         /// Returns the ISO-assigned abbreviation/code for an entity.
         /// </summary>
-        string IsoAbbreviation { get; }
-    }
-
-    /// <summary>
-    /// Represents an entity with a UN-assigned abbrevation/code.
-    /// </summary>
-    public interface IUNAbbreviable
-    {
-        string UNAbbreviation { get; }
-        int UNCode { get; }
+        string IsoAlpha2 { get; }
+        string IsoAlpha3 { get; }
+        string IsoNumeric { get; }
     }
 }

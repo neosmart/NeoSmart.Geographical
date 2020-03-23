@@ -102,7 +102,7 @@ namespace NeoSmart.Geographical
                         }
 
                         object? instance = null;
-                        bool makeInstance ()
+                        bool makeInstance()
                         {
                             var constructor = type.GetConstructor(Type.EmptyTypes);
                             if (constructor is null)
@@ -139,15 +139,39 @@ namespace NeoSmart.Geographical
                                 _found.Add(value);
                             }
 
+                            object? fieldInstance = null;
                             foreach (var innerField in field.FieldType.GetFields())
                             {
                                 if (innerField.FieldType == typeof(T))
                                 {
-                                    instance ??= field.GetValue(null);
-                                    _found.Add((T)innerField.GetValue(instance));
+                                    fieldInstance ??= field.GetValue(null);
+                                    _found.Add((T)innerField.GetValue(fieldInstance));
                                 }
                             }
                         }
+
+                        //var fields = type.GetFields(
+                        //    ~(BindingFlags.Static | BindingFlags.NonPublic));
+                        //foreach (var field in staticFields)
+                        //{
+                        //    object? fieldInstance = null;
+                        //    if (field.FieldType == typeof(T))
+                        //    {
+                        //        instance ??= makeInstance();
+                        //        fieldInstance = field.GetValue(instance);
+                        //        _found.Add((T)fieldInstance);
+                        //    }
+
+                        //    foreach (var innerField in field.FieldType.GetFields())
+                        //    {
+                        //        if (innerField.FieldType == typeof(T))
+                        //        {
+                        //            instance ??= makeInstance();
+                        //            fieldInstance ??= field.GetValue(null);
+                        //            _found.Add((T)innerField.GetValue(fieldInstance));
+                        //        }
+                        //    }
+                        //}
                     }
                 }
 
