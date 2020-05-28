@@ -15,8 +15,8 @@
     <RepositoryUrl>https://github.com/neosmart/NeoSmart.Geographical/</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>geography, geographical, list, countries, enumeration</PackageTags>
-    <AssemblyVersion>0.1.0.0</AssemblyVersion>
-    <Version>0.1.0</Version>
+    <AssemblyVersion>0.2.0.0</AssemblyVersion>
+    <Version>0.2.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
