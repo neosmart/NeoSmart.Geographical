@@ -15,11 +15,18 @@ namespace NeoSmart.Geographical
 
         private void BuildIndex()
         {
-            _all ??= new TypeIndexer<T, WellKnown<T>>();
-            _indexer = new PropertyIndexer<T, string>(StringComparer.CurrentCultureIgnoreCase);
-            foreach (var expression in IndexExpressions)
+            lock (this)
             {
-                _indexer.AddToIndex(_all, expression, key => !string.IsNullOrEmpty(key));
+                // Double-checked locking
+                if (_indexer is null)
+                {
+                    _all ??= new TypeIndexer<T, WellKnown<T>>();
+                    _indexer = new PropertyIndexer<T, string>(StringComparer.CurrentCultureIgnoreCase);
+                    foreach (var expression in Indexers)
+                    {
+                        _indexer.AddToIndex(_all, expression, key => !string.IsNullOrEmpty(key));
+                    }
+                }
             }
         }
 
