@@ -54,8 +54,8 @@ namespace NeoSmart.Geographical
 
         public class StateFactory : WellKnown<State>
         {
-            protected override IEnumerable<Expression<Func<State, string>>> IndexExpressions =>
-                new Expression<Func<State, string>>[]
+            protected override IEnumerable<Func<State, string>> Indexers =>
+                new Func<State, string>[]
                 {
                     state => state.Name,
                     state => state.Abbreviation,

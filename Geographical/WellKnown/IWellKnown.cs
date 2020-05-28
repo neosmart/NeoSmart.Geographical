@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 using System.Reflection;
 
 namespace NeoSmart.Geographical
@@ -12,7 +11,7 @@ namespace NeoSmart.Geographical
         private static TypeIndexer<T, WellKnown<T>>? _all;
         private static PropertyIndexer<T, string>? _indexer;
 
-        protected abstract IEnumerable<Expression<Func<T, string>>> IndexExpressions { get; }
+        protected abstract IEnumerable<Func<T, string>> Indexers { get; }
 
         private void BuildIndex()
         {
@@ -188,10 +187,5 @@ namespace NeoSmart.Geographical
         {
             return ((IEnumerable<T>)_found).GetEnumerator();
         }
-
-        //public static T Find<K>(System.Linq.Expressions.Expression<Func<T, K>> expression, K value)
-        //{
-        //    return Indexer<WellKnown<T>, T, K>.Find(All, expression, value);
-        //}
     }
 }

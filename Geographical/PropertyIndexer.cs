@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Text;
 
 namespace NeoSmart.Geographical
 {
@@ -15,17 +13,16 @@ namespace NeoSmart.Geographical
             Index = new SortedDictionary<TKey, TEntity>(comparer);
         }
 
-        public void AddToIndex(IEnumerable<TEntity> entities, Expression<Func<TEntity, TKey>> indexer,
+        public void AddToIndex(IEnumerable<TEntity> entities, Func<TEntity, TKey> indexer,
             Func<TKey, bool>? precondition = null)
         {
             precondition ??= _ => true;
-            var compiled = indexer.Compile();
             foreach (var entity in entities)
             {
-                var key = compiled(entity);
+                var key = indexer(entity);
                 if (precondition(key))
                 {
-                    Index[compiled(entity)] = entity;
+                    Index[indexer(entity)] = entity;
                 }
             }
         }

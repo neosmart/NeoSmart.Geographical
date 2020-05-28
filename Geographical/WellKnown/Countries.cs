@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq.Expressions;
 using System.Reflection;
 
 namespace NeoSmart.Geographical
@@ -14,8 +13,8 @@ namespace NeoSmart.Geographical
 
     public class CountryFactory : WellKnown<Country>
     {
-        protected override IEnumerable<Expression<Func<Country, string>>> IndexExpressions =>
-            new Expression<Func<Country, string>>[]
+        protected override IEnumerable<Func<Country, string>> Indexers =>
+            new Func<Country, string>[]
             {
                 country => country.Name,
                 country => country.Abbreviation,
