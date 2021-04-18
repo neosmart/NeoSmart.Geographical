@@ -10,6 +10,7 @@ namespace NeoSmart.Geographical
     {
         private static TypeIndexer<T, WellKnown<T>>? _all;
         private static PropertyIndexer<T, string>? _indexer;
+        private static bool _indexed = false;
 
         protected abstract IEnumerable<Func<T, string>> Indexers { get; }
 
@@ -17,8 +18,12 @@ namespace NeoSmart.Geographical
         {
             lock (this)
             {
-                // Double-checked locking
-                if (_indexer is null)
+                if (_indexed)
+                {
+                    return;
+                }
+
+                try
                 {
                     _all ??= new TypeIndexer<T, WellKnown<T>>();
                     _indexer = new PropertyIndexer<T, string>(StringComparer.CurrentCultureIgnoreCase);
@@ -26,6 +31,10 @@ namespace NeoSmart.Geographical
                     {
                         _indexer.AddToIndex(_all, expression, key => !string.IsNullOrEmpty(key));
                     }
+                }
+                finally
+                {
+                    _indexed = true;
                 }
             }
         }
@@ -41,7 +50,7 @@ namespace NeoSmart.Geographical
 
         public bool TryGetValue(string search, out T result)
         {
-            if (_indexer is null)
+            if (!_indexed)
             {
                 BuildIndex();
             }
