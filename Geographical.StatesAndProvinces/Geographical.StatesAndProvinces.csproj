@@ -6,15 +6,16 @@
     <RootNamespace>NeoSmart.Geographical</RootNamespace>
     <LangVersion>8.0</LangVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.2.0</Version>
+    <Version>0.2.1</Version>
     <Description>A strongly-typed enumeration of states and provinces extending the NeoSmart.Geographical library and interfaces.</Description>
-    <Copyright>NeoSmart Technologies 2018-2020</Copyright>
+    <Copyright>NeoSmart Technologies 2018-2021</Copyright>
     <PackageId>NeoSmart.Geographical.StatesAndProvinces</PackageId>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/neosmart/NeoSmart.Geographical/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/neosmart/NeoSmart.Geographical/</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>geographical, states, provinces</PackageTags>
+    <PackageReleaseNotes>Add US territories</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>netstandard1.3;netstandard2.1</TargetFrameworks>
@@ -8,15 +8,16 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Interfaces for representing location data and a strongly-typed static enumeration of the world's countries with their abbreviations. ISO Abbreviation, country codes, UN abbreviations, and more.</Description>
-    <Copyright>NeoSmart Technologies 2018-2020</Copyright>
+    <Copyright>NeoSmart Technologies 2018-2021</Copyright>
     <PackageId>NeoSmart.Geographical</PackageId>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/neosmart/NeoSmart.Geographical/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/neosmart/NeoSmart.Geographical/</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>geography, geographical, list, countries, enumeration</PackageTags>
-    <AssemblyVersion>0.2.0.0</AssemblyVersion>
-    <Version>0.2.0</Version>
+    <AssemblyVersion>0.2.1.0</AssemblyVersion>
+    <Version>0.2.1</Version>
+    <FileVersion>0.2.1.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
