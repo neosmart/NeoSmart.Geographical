@@ -15,10 +15,10 @@ namespace NeoSmart.Geographical
             public readonly string Name { get; }
             public readonly string Abbreviation { get; }
 
-            public State(string name, string abbrevation = "")
+            public State(string name, string abbreviation = "")
             {
                 Name = name;
-                Abbreviation = abbrevation;
+                Abbreviation = abbreviation;
             }
 
             public int CompareTo(State other)
@@ -65,359 +65,396 @@ namespace NeoSmart.Geographical
             public State Alabama => new State
             (
                 "Alabama",
-                abbrevation: "AL"
+                abbreviation: "AL"
             );
 
             [Display(Name = "Alaska")]
             public State Alaska => new State
             (
                 "Alaska",
-                abbrevation: "AK"
+                abbreviation: "AK"
             );
 
             [Display(Name = "Arizona")]
             public State Arizona => new State
             (
                 "Arizona",
-                abbrevation: "AZ"
+                abbreviation: "AZ"
             );
 
             [Display(Name = "Arkansas")]
             public State Arkansas => new State
             (
                 "Arkansas",
-                abbrevation: "AR"
+                abbreviation: "AR"
             );
 
             [Display(Name = "California")]
             public State California => new State
             (
                 "California",
-                abbrevation: "CA"
+                abbreviation: "CA"
             );
 
             [Display(Name = "Colorado")]
             public State Colorado => new State
             (
                 "Colorado",
-                abbrevation: "CO"
+                abbreviation: "CO"
             );
 
             [Display(Name = "Connecticut")]
             public State Connecticut => new State
             (
                 "Connecticut",
-                abbrevation: "CT"
+                abbreviation: "CT"
             );
 
             [Display(Name = "Delaware")]
             public State Delaware => new State
             (
                 "Delaware",
-                abbrevation: "DE"
+                abbreviation: "DE"
             );
 
             [Display(Name = "District of Columbia")]
             public State DistrictOfColumbia => new State
             (
                 "District of Columbia",
-                abbrevation: "DC"
+                abbreviation: "DC"
             );
 
             [Display(Name = "Florida")]
             public State Florida => new State
             (
                 "Florida",
-                abbrevation: "FL"
+                abbreviation: "FL"
             );
 
             [Display(Name = "Georgia")]
             public State Georgia => new State
             (
                 "Georgia",
-                abbrevation: "GA"
+                abbreviation: "GA"
             );
 
             [Display(Name = "Hawaii")]
             public State Hawaii => new State
             (
                 "Hawaii",
-                abbrevation: "HI"
+                abbreviation: "HI"
             );
 
             [Display(Name = "Idaho")]
             public State Idaho => new State
             (
                 "Idaho",
-                abbrevation: "ID"
+                abbreviation: "ID"
             );
 
             [Display(Name = "Illinois")]
             public State Illinois => new State
             (
                 "Illinois",
-                abbrevation: "IL"
+                abbreviation: "IL"
             );
 
             [Display(Name = "Indiana")]
             public State Indiana => new State
             (
                 "Indiana",
-                abbrevation: "IN"
+                abbreviation: "IN"
             );
 
             [Display(Name = "Iowa")]
             public State Iowa => new State
             (
                 "Iowa",
-                abbrevation: "IA"
+                abbreviation: "IA"
             );
 
             [Display(Name = "Kansa")]
             public State Kansa => new State
             (
                 "Kansa",
-                abbrevation: "KS"
+                abbreviation: "KS"
             );
 
             [Display(Name = "Kentucky")]
             public State Kentucky => new State
             (
                 "Kentucky",
-                abbrevation: "KY"
+                abbreviation: "KY"
             );
 
             [Display(Name = "Lousiana")]
             public State Lousiana => new State
             (
                 "Lousiana",
-                abbrevation: "LA"
+                abbreviation: "LA"
             );
 
             [Display(Name = "Maine")]
             public State Maine => new State
             (
                 "Maine",
-                abbrevation: "ME"
+                abbreviation: "ME"
             );
 
             [Display(Name = "Maryland")]
             public State Maryland => new State
             (
                 "Maryland",
-                abbrevation: "MD"
+                abbreviation: "MD"
             );
 
             [Display(Name = "Massachusetts")]
             public State Massachusetts => new State
             (
                 "Massachusetts",
-                abbrevation: "MA"
+                abbreviation: "MA"
             );
 
             [Display(Name = "Michigan")]
             public State Michigan => new State
             (
                 "Michigan",
-                abbrevation: "MI"
+                abbreviation: "MI"
             );
 
             [Display(Name = "Minnesota")]
             public State Minnesota => new State
             (
                 "Minnesota",
-                abbrevation: "MN"
+                abbreviation: "MN"
             );
 
             [Display(Name = "Mississippi")]
             public State Mississippi => new State
             (
                 "Mississippi",
-                abbrevation: "MS"
+                abbreviation: "MS"
             );
 
             [Display(Name = "Missouri")]
             public State Missouri => new State
             (
                 "Missouri",
-                abbrevation: "MO"
+                abbreviation: "MO"
             );
 
             [Display(Name = "Montana")]
             public State Montana => new State
             (
                 "Montana",
-                abbrevation: "MT"
+                abbreviation: "MT"
             );
 
             [Display(Name = "Nebraska")]
             public State Nebraska => new State
             (
                 "Nebraska",
-                abbrevation: "NE"
+                abbreviation: "NE"
             );
 
             [Display(Name = "Nevada")]
             public State Nevada => new State
             (
                 "Nevada",
-                abbrevation: "NV"
+                abbreviation: "NV"
             );
 
             [Display(Name = "New Hampshire")]
             public State NewHampshire => new State
             (
                 "New Hampshire",
-                abbrevation: "NH"
+                abbreviation: "NH"
             );
 
             [Display(Name = "New Jersey")]
             public State NewJersey => new State
             (
                 "New Jersey",
-                abbrevation: "NJ"
+                abbreviation: "NJ"
             );
 
             [Display(Name = "New Mexico")]
             public State NewMexico => new State
             (
                 "New Mexico",
-                abbrevation: "NM"
+                abbreviation: "NM"
             );
 
             [Display(Name = "New York")]
             public State NewYork => new State
             (
                 "New York",
-                abbrevation: "NY"
+                abbreviation: "NY"
             );
 
             [Display(Name = "North Carolina")]
             public State NorthCarolina => new State
             (
                 "North Carolina",
-                abbrevation: "NC"
+                abbreviation: "NC"
             );
 
             [Display(Name = "North Dakota")]
             public State NorthDakota => new State
             (
                 "North Dakota",
-                abbrevation: "ND"
+                abbreviation: "ND"
             );
 
             [Display(Name = "Ohio")]
             public State Ohio => new State
             (
                 "Ohio",
-                abbrevation: "OH"
+                abbreviation: "OH"
             );
 
             [Display(Name = "Oklahoma")]
             public State Oklahoma => new State
             (
                 "Oklahoma",
-                abbrevation: "OK"
+                abbreviation: "OK"
             );
 
             [Display(Name = "Oregon")]
             public State Oregon => new State
             (
                 "Oregon",
-                abbrevation: "OR"
+                abbreviation: "OR"
             );
 
             [Display(Name = "Pennsylvania")]
             public State Pennsylvania => new State
             (
                 "Pennsylvania",
-                abbrevation: "PA"
+                abbreviation: "PA"
             );
 
             [Display(Name = "Rhode Island")]
             public State RhodeIsland => new State
             (
                 "Rhode Island",
-                abbrevation: "RI"
+                abbreviation: "RI"
             );
 
             [Display(Name = "South Carolina")]
             public State SouthCarolina => new State
             (
                 "South Carolina",
-                abbrevation: "SC"
+                abbreviation: "SC"
             );
 
             [Display(Name = "South Dakota")]
             public State SouthDakota => new State
             (
                 "South Dakota",
-                abbrevation: "SD"
+                abbreviation: "SD"
             );
 
             [Display(Name = "Tennessee")]
             public State Tennessee => new State
             (
                 "Tennessee",
-                abbrevation: "TN"
+                abbreviation: "TN"
             );
 
             [Display(Name = "Texas")]
             public State Texas => new State
             (
                 "Texas",
-                abbrevation: "TX"
+                abbreviation: "TX"
             );
 
             [Display(Name = "Utah")]
             public State Utah => new State
             (
                 "Utah",
-                abbrevation: "UT"
+                abbreviation: "UT"
             );
 
             [Display(Name = "Vermont")]
             public State Vermont => new State
             (
                 "Vermont",
-                abbrevation: "VT"
+                abbreviation: "VT"
             );
 
             [Display(Name = "Virginia")]
             public State Virginia => new State
             (
                 "Virginia",
-                abbrevation: "VA"
+                abbreviation: "VA"
             );
 
             [Display(Name = "Washington")]
             public State Washington => new State
             (
                 "Washington",
-                abbrevation: "WA"
+                abbreviation: "WA"
             );
 
             [Display(Name = "West Virginia")]
             public State WestVirginia => new State
             (
                 "West Virginia",
-                abbrevation: "WV"
+                abbreviation: "WV"
             );
 
             [Display(Name = "Wisconsin")]
             public State Wisconsin => new State
             (
                 "Wisconsin",
-                abbrevation: "WI"
+                abbreviation: "WI"
             );
 
             [Display(Name = "Wyoming")]
             public State Wyoming => new State
             (
                 "Wyoming",
-                abbrevation: "WY"
+                abbreviation: "WY"
             );
 
+
+            // Begin US Territories
+
+            [Display(Name = "American Samoa")]
+            public State AmericanSamoa => new State
+            (
+                "American Samoa",
+                abbreviation: "AS"
+            );
+
+            [Display(Name = "Guam")]
+            public State Guam => new State
+            (
+                "Guam",
+                abbreviation: "GU"
+            );
+
+            [Display(Name = "Northern Mariana Islands")]
+            public State NorthernMarianaIslands => new State
+            (
+                "Northern Mariana Islands",
+                abbreviation: "MP"
+            );
+
+            [Display(Name = "Puerto Rico")]
+            public State PuertoRico => new State
+            (
+                "Puerto Rico",
+                abbreviation: "PR"
+            );
+
+            [Display(Name = "US Virgin Islands")]
+            public State UsVirginIslands => new State
+            (
+                "US Virgin Islands",
+                abbreviation: "VI"
+            );
         }
     }
 }
