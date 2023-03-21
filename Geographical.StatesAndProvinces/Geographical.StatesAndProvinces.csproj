@@ -6,7 +6,7 @@
     <RootNamespace>NeoSmart.Geographical</RootNamespace>
     <LangVersion>latest</LangVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.2.2</Version>
+    <Version>0.2.3</Version>
     <Description>A strongly-typed enumeration of states and provinces extending the NeoSmart.Geographical library and interfaces.</Description>
     <Copyright>NeoSmart Technologies 2018-2023</Copyright>
     <PackageId>NeoSmart.Geographical.StatesAndProvinces</PackageId>
