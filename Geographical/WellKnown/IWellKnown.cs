@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Threading;
 
 namespace NeoSmart.Geographical
 {
@@ -16,26 +17,26 @@ namespace NeoSmart.Geographical
 
         private void BuildIndex()
         {
-            lock (this)
+            try
             {
-                if (_indexed)
+                Interlocked.CompareExchange(ref _indexer, new PropertyIndexer<T, string>(StringComparer.OrdinalIgnoreCase), null);
+                lock (_indexer)
                 {
-                    return;
-                }
+                    if (_indexed)
+                    {
+                        return;
+                    }
 
-                try
-                {
                     _all ??= new TypeIndexer<T, WellKnown<T>>();
-                    _indexer = new PropertyIndexer<T, string>(StringComparer.OrdinalIgnoreCase);
                     foreach (var expression in Indexers)
                     {
-                        _indexer.AddToIndex(_all, expression, key => !string.IsNullOrEmpty(key));
+                        _indexer.AddToIndex(_all, expression, static key => !string.IsNullOrEmpty(key));
                     }
                 }
-                finally
-                {
-                    _indexed = true;
-                }
+            }
+            finally
+            {
+                _indexed = true;
             }
         }
 
