@@ -16,7 +16,7 @@ namespace NeoSmart.Geographical
         public void AddToIndex(IEnumerable<TEntity> entities, Func<TEntity, TKey> indexer,
             Func<TKey, bool>? precondition = null)
         {
-            precondition ??= _ => true;
+            precondition ??= static _ => true;
             foreach (var entity in entities)
             {
 				var key = indexer(entity);

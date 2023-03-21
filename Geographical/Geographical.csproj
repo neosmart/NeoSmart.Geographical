@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard1.3;netstandard2.1</TargetFrameworks>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>latest</LangVersion>
     <AssemblyName>NeoSmart.Geographical</AssemblyName>
     <RootNamespace>NeoSmart.Geographical</RootNamespace>
     <Nullable>enable</Nullable>
