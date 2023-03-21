@@ -27,7 +27,10 @@ namespace NeoSmart.Geographical
 #else
                     try
                     {
-                        Index[key] = entity;
+                        if (!Index.ContainsKey(key))
+                        {
+                            Index.Add(key, entity);
+                        }
                     }
                     catch
                     {
