@@ -29,7 +29,7 @@ namespace NeoSmart.Geographical
                     _indexer = new PropertyIndexer<T, string>(StringComparer.CurrentCultureIgnoreCase);
                     foreach (var expression in Indexers)
                     {
-                        _indexer.AddToIndex(_all, expression, key => !string.IsNullOrEmpty(key));
+						_indexer.AddToIndex(_all, expression, key => !string.IsNullOrEmpty(key));
                     }
                 }
                 finally
