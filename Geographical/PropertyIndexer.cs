@@ -19,8 +19,8 @@ namespace NeoSmart.Geographical
             precondition ??= static _ => true;
             foreach (var entity in entities)
             {
-				var key = indexer(entity);
-				if (precondition(key))
+                var key = indexer(entity);
+                if (precondition(key))
                 {
 #if NETSTANDARD2_1_OR_GREATER
                     Index.TryAdd(key, entity);

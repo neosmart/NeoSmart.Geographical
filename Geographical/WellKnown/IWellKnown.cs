@@ -6,7 +6,7 @@ using System.Reflection;
 namespace NeoSmart.Geographical
 {
     public abstract class WellKnown<T> : IEnumerable<T>
-        where T: struct, IComparable<T>, IEquatable<T>
+        where T : struct, IComparable<T>, IEquatable<T>
     {
         private static TypeIndexer<T, WellKnown<T>>? _all;
         private static PropertyIndexer<T, string>? _indexer;
@@ -29,7 +29,7 @@ namespace NeoSmart.Geographical
                     _indexer = new PropertyIndexer<T, string>(StringComparer.OrdinalIgnoreCase);
                     foreach (var expression in Indexers)
                     {
-						_indexer.AddToIndex(_all, expression, key => !string.IsNullOrEmpty(key));
+                        _indexer.AddToIndex(_all, expression, key => !string.IsNullOrEmpty(key));
                     }
                 }
                 finally
@@ -97,9 +97,8 @@ namespace NeoSmart.Geographical
 
                     foreach (var type in assembly.GetTypes())
                     {
-#if !NETSTANDARD1_3
-                        if (containerType is object
-                            && !type.IsSubclassOf(containerType))
+#if NETSTANDARD2_1_OR_GREATER
+                        if (containerType is object && !type.IsSubclassOf(containerType))
                         {
                             continue;
                         }
@@ -125,7 +124,7 @@ namespace NeoSmart.Geographical
                                 // No default constructor available
                                 return false;
                             }
-                            instance = constructor.Invoke(Array.Empty<Object>());
+                            instance = constructor.Invoke(Array.Empty<object>());
                             return instance is object && true;
                         }
 
