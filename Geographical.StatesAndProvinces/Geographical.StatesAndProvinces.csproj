@@ -4,7 +4,7 @@
     <TargetFrameworks>netstandard1.3;netstandard2.1</TargetFrameworks>
     <AssemblyName>NeoSmart.Geographical.StatesAndProvinces</AssemblyName>
     <RootNamespace>NeoSmart.Geographical</RootNamespace>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>latest</LangVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>0.2.2</Version>
     <Description>A strongly-typed enumeration of states and provinces extending the NeoSmart.Geographical library and interfaces.</Description>
