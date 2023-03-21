@@ -26,7 +26,7 @@ namespace NeoSmart.Geographical
                 try
                 {
                     _all ??= new TypeIndexer<T, WellKnown<T>>();
-                    _indexer = new PropertyIndexer<T, string>(StringComparer.CurrentCultureIgnoreCase);
+                    _indexer = new PropertyIndexer<T, string>(StringComparer.OrdinalIgnoreCase);
                     foreach (var expression in Indexers)
                     {
 						_indexer.AddToIndex(_all, expression, key => !string.IsNullOrEmpty(key));
