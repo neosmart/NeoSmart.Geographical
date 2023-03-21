@@ -23,11 +23,11 @@ namespace NeoSmart.Geographical
 				if (precondition(key))
                 {
 #if NETSTANDARD2_1_OR_GREATER
-                    Index.TryAdd(indexer(entity), entity);
+                    Index.TryAdd(key, entity);
 #else
                     try
                     {
-                        Index[indexer(entity)] = entity;
+                        Index[key] = entity;
                     }
                     catch
                     {
