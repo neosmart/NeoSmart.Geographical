@@ -187,10 +187,10 @@ namespace NeoSmart.Geographical
                 abbreviation: "KY"
             );
 
-            [Display(Name = "Lousiana")]
-            public State Lousiana => new State
+            [Display(Name = "Louisiana")]
+            public State Louisiana => new State
             (
-                "Lousiana",
+                "Louisiana",
                 abbreviation: "LA"
             );
 
